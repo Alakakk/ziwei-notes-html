@@ -1,0 +1,346 @@
+#root {
+  min-height: 100vh;
+}
+
+.note-stage {
+  align-items: center;
+  background: var(--page-bg);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 28px;
+}
+
+.note-page {
+  background: var(--paper-bg);
+  border: 1px solid #e3dfd8;
+  color: var(--ink-main);
+  display: grid;
+  grid-template-columns: var(--hole-safe-width) 1fr;
+  height: var(--page-height);
+  overflow: hidden;
+  position: relative;
+  width: var(--page-width);
+}
+
+.note-page.export-mode {
+  border-color: transparent;
+}
+
+.hole-safe-area {
+  border-right: 1px solid var(--line-faint);
+  position: relative;
+}
+
+.hole-safe-area::before {
+  background: rgba(112, 106, 131, 0.035);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.note-content {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-width: 0;
+  padding: 18px var(--page-padding-right) var(--page-padding-bottom) 18px;
+}
+
+.top-bar {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(238, 235, 242, 0.42), rgba(255, 253, 248, 0));
+  border-bottom: 1.6px solid var(--accent-dark);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr auto;
+  min-height: 42px;
+  padding: 0 0 8px;
+  position: relative;
+}
+
+.top-bar::after {
+  background: var(--line-faint);
+  bottom: -4px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.top-bar-left {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-pill {
+  background: var(--accent-dark);
+  border-radius: 4px;
+  color: #fffdf8;
+  display: inline-flex;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1;
+  padding: 6px 13px 7px;
+  white-space: nowrap;
+}
+
+.category-label,
+.page-label {
+  color: var(--ink-main);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.category-label {
+  border-left: 1px solid var(--line-soft);
+  padding-left: 10px;
+}
+
+.page-label {
+  color: #161414;
+  justify-self: end;
+}
+
+.title-band {
+  align-items: end;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr auto;
+  padding: 19px 0 12px;
+}
+
+.title-band h1 {
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 0.96;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.title-band p {
+  color: var(--ink-main);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.3;
+  margin: 0 4px 8px 0;
+  white-space: nowrap;
+}
+
+.lesson-sections {
+  display: grid;
+  gap: 6px;
+  min-height: 0;
+}
+
+.numbered-section {
+  background: rgba(255, 253, 248, 0.96);
+  border: 1.2px solid var(--line-soft);
+  border-radius: 8px;
+  min-width: 0;
+  padding: 9px 12px 10px;
+}
+
+.section-heading {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.section-number {
+  background: var(--accent-dark);
+  border-radius: 5px;
+  color: #fffdf8;
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  min-width: 32px;
+  padding: 5px 7px;
+}
+
+.section-heading h2 {
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.section-content {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  line-height: 1.48;
+}
+
+.note-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--font-serif);
+  font-size: 12.5px;
+  line-height: 1.35;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.note-table th,
+.note-table td {
+  border-bottom: 1px solid var(--line-faint);
+  border-right: 1px solid var(--line-faint);
+  padding: 4px 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.note-table thead th {
+  background: var(--accent-light);
+  color: var(--ink-main);
+  font-weight: 600;
+}
+
+.note-table tbody th {
+  color: var(--ink-main);
+  font-weight: 600;
+  width: 28%;
+}
+
+.note-table tr > *:first-child {
+  border-left: 1px solid var(--line-faint);
+}
+
+.note-table thead tr:first-child > * {
+  border-top: 1px solid var(--line-faint);
+}
+
+.note-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.note-list li {
+  margin: 1px 0;
+  padding-left: 2px;
+}
+
+.compact-list {
+  padding-left: 16px;
+}
+
+.section-pair {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1.15fr;
+}
+
+.state-compare {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.state-compare > div {
+  border: 1px solid var(--line-faint);
+  border-radius: 5px;
+  padding: 6px 7px;
+}
+
+.state-compare h3 {
+  color: var(--accent-dark);
+  font-family: var(--font-serif);
+  font-size: 13px;
+  line-height: 1;
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.palace-list strong {
+  color: var(--ink-main);
+  font-weight: 600;
+}
+
+.memory-line {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-note {
+  align-self: end;
+  border-top: 1.5px solid var(--line-soft);
+  color: var(--ink-main);
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  margin-top: 10px;
+  padding-top: 8px;
+  position: relative;
+}
+
+.footer-note::before,
+.footer-note::after {
+  background: var(--accent-dark);
+  border-radius: 50%;
+  content: "";
+  height: 5px;
+  position: absolute;
+  top: -3px;
+  width: 5px;
+}
+
+.footer-note::before {
+  left: 28%;
+}
+
+.footer-note::after {
+  right: 28%;
+}
+
+.footer-note p {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.footer-note p:last-child {
+  color: var(--ink-muted);
+  font-size: 10px;
+}
+
+.scene-markers {
+  bottom: 5px;
+  color: transparent;
+  display: flex;
+  font-size: 1px;
+  gap: 1px;
+  left: calc(var(--hole-safe-width) + 18px);
+  position: absolute;
+}
+
+@media (max-width: 720px) {
+  .note-stage {
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 16px;
+  }
+
+  .note-page {
+    flex: 0 0 auto;
+    transform-origin: top center;
+  }
+}

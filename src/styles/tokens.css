@@ -1,0 +1,52 @@
+:root {
+  --page-bg: #f0efec;
+  --paper-bg: #fffdf8;
+  --ink-main: #1f1d1d;
+  --ink-muted: #716b7f;
+  --text-main: var(--ink-main);
+  --text-muted: var(--ink-muted);
+  --accent: #706a83;
+  --accent-dark: #575168;
+  --accent-light: #eeebf2;
+  --line-soft: #aba5ba;
+  --line-faint: #d8d3de;
+  --hole-safe-width: 42px;
+  --page-width: 559px;
+  --page-height: 794px;
+  --page-padding-top: 22px;
+  --page-padding-right: 28px;
+  --page-padding-bottom: 20px;
+  --page-radius: 0;
+  --font-kai: "Kaiti SC", "KaiTi", "STKaiti", "BiauKai", "楷体", serif;
+  --font-sans: var(--font-kai);
+  --font-serif: var(--font-kai);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--page-bg);
+  color: var(--text-main);
+  font-family: var(--font-kai);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
