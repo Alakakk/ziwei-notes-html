@@ -1,11 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ZiweiPage } from "./pages/ZiweiPage";
+import { App } from "./App";
 import "./styles/tokens.css";
+import "./styles/site.css";
 import "./styles/note-page.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ZiweiPage />
+    <App />
   </StrictMode>,
 );

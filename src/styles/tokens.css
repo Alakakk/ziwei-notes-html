@@ -1,25 +1,32 @@
 :root {
-  --page-bg: #f0efec;
+  --page-bg: #f6f3ee;
   --paper-bg: #fffdf8;
-  --ink-main: #1f1d1d;
-  --ink-muted: #716b7f;
+  --ink-main: #28242c;
+  --ink-soft: #4d4658;
+  --ink-muted: #766d80;
   --text-main: var(--ink-main);
   --text-muted: var(--ink-muted);
-  --accent: #706a83;
-  --accent-dark: #575168;
-  --accent-light: #eeebf2;
-  --line-soft: #aba5ba;
-  --line-faint: #d8d3de;
-  --hole-safe-width: 42px;
-  --page-width: 559px;
-  --page-height: 794px;
+  --accent: #6b6278;
+  --accent-dark: #51465f;
+  --accent-light: #eeeaf3;
+  --accent-green: #2f7d62;
+  --accent-green-light: #e7f4ee;
+  --line: #b9aec8;
+  --line-soft: #ddd6e5;
+  --line-faint: #e8e2ee;
+  --section-bg: rgba(255, 253, 248, 0.94);
+  --site-max-width: 1220px;
+  --hole-safe-width: 58px;
+  --page-width: 794px;
+  --page-height: 1123px;
   --page-padding-top: 22px;
   --page-padding-right: 28px;
   --page-padding-bottom: 20px;
   --page-radius: 0;
-  --font-kai: "Kaiti SC", "KaiTi", "STKaiti", "BiauKai", "楷体", serif;
-  --font-sans: var(--font-kai);
-  --font-serif: var(--font-kai);
+  --font-title: "Songti SC", "STSong", "Noto Serif CJK SC", "Noto Serif SC", serif;
+  --font-body: "PingFang SC", "Noto Sans CJK SC", "Noto Sans SC", system-ui, sans-serif;
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-title);
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -35,13 +42,14 @@
 html {
   background: var(--page-bg);
   color: var(--text-main);
-  font-family: var(--font-kai);
+  font-family: var(--font-body);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button,

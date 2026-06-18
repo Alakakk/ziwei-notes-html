@@ -16,7 +16,11 @@ export function NumberedSection({
   scene,
 }: NumberedSectionProps) {
   return (
-    <section className={`numbered-section ${className}`} data-scene={scene}>
+    <section
+      className={`numbered-section ${className}`}
+      data-scene={scene}
+      id={scene}
+    >
       <div className="section-heading">
         <span className="section-number">{number}</span>
         <h2>{title}</h2>

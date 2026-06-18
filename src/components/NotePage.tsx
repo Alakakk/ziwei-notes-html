@@ -63,11 +63,21 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
           />
           <TitleBand title={note.displayTitle} topic={note.topic} />
           <div className="lesson-sections" aria-label="紫微星笔记内容">
-            <NumberedSection number="01" title="基础标签" scene="basic-tags">
+            <NumberedSection
+              className="basic-section"
+              number="01"
+              title="基础档案"
+              scene="basic-tags"
+            >
               <NoteTable rows={note.basicTags} />
             </NumberedSection>
 
-            <NumberedSection number="02" title="星性理解" scene="star-nature">
+            <NumberedSection
+              className="nature-section"
+              number="02"
+              title="星性核心"
+              scene="star-nature"
+            >
               <ul className="note-list">
                 {note.naturePoints.map((point) => (
                   <li key={point}>{point}</li>
@@ -76,11 +86,21 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
             </NumberedSection>
 
             <div className="section-pair">
-              <NumberedSection number="03" title="状态提示" scene="state-hints">
+              <NumberedSection
+                className="state-section"
+                number="03"
+                title="状态分化"
+                scene="state-hints"
+              >
                 <StateCompare note={note} />
               </NumberedSection>
 
-              <NumberedSection number="04" title="落宫提示" scene="palace-hints">
+              <NumberedSection
+                className="palace-section"
+                number="04"
+                title="十二宫落点"
+                scene="palace-hints"
+              >
                 <ul className="note-list palace-list">
                   {note.palaceHints.map((item) => (
                     <li key={item.palace}>
@@ -92,8 +112,14 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
               </NumberedSection>
             </div>
 
-            <NumberedSection number="05" title="速记与判断" scene="closing-quote">
+            <NumberedSection
+              className="quote-section"
+              number="05"
+              title="速记与边界"
+              scene="closing-quote"
+            >
               <p className="memory-line">{note.quote}</p>
+              <p className="boundary-line">学习整理，不作现实决策依据。</p>
             </NumberedSection>
           </div>
           <FooterNote
