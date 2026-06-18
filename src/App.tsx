@@ -1,5 +1,6 @@
 import { HomePage } from "./pages/HomePage";
 import { StarsIndexPage } from "./pages/StarsIndexPage";
+import { TianjiReaderPage } from "./pages/TianjiReaderPage";
 import { ZiweiReaderPage } from "./pages/ZiweiReaderPage";
 
 export function App() {
@@ -11,6 +12,10 @@ export function App() {
 
   if (path === "/stars/ziwei") {
     return <ZiweiReaderPage />;
+  }
+
+  if (path === "/stars/tianji") {
+    return <TianjiReaderPage />;
   }
 
   return <HomePage />;

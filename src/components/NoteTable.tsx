@@ -10,7 +10,7 @@ export function NoteTable({ rows }: NoteTableProps) {
       <thead>
         <tr>
           <th>项目</th>
-          <th>紫微星</th>
+          <th>性质</th>
         </tr>
       </thead>
       <tbody>

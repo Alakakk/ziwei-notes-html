@@ -8,11 +8,16 @@ import { SiteTopBar } from "./SiteTopBar";
 type SiteLayoutProps = {
   children: ReactNode;
   activePath?: string;
+  variant?: "default" | "reader";
 };
 
-export function SiteLayout({ children, activePath = "/" }: SiteLayoutProps) {
+export function SiteLayout({
+  children,
+  activePath = "/",
+  variant = "default",
+}: SiteLayoutProps) {
   return (
-    <div className="site-layout">
+    <div className={`site-layout ${variant === "reader" ? "reader-layout" : ""}`}>
       <SiteTopBar />
       <SiteHeader />
       <PrimaryNav activePath={activePath} />

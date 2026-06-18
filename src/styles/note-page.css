@@ -17,6 +17,7 @@
   color: var(--ink-main);
   display: grid;
   grid-template-columns: var(--hole-safe-width) 1fr;
+  grid-template-rows: minmax(0, 1fr);
   height: var(--page-height);
   min-height: auto;
   overflow: hidden;
@@ -30,19 +31,23 @@
 
 .hole-safe-area {
   border-right: 1px solid var(--line-faint);
+  min-height: 0;
   position: relative;
 }
 
 .hole-safe-area::before {
-  background: rgba(93, 0, 121, 0.025);
+  background: rgba(124, 108, 147, 0.025);
   content: "";
   inset: 0;
   position: absolute;
 }
 
 .note-content {
+  box-sizing: border-box;
   display: grid;
-  grid-template-rows: 56px 130px minmax(0, 1fr) 38px;
+  grid-template-rows: 56px 118px minmax(0, 1fr) 48px;
+  height: 100%;
+  min-height: 0;
   min-width: 0;
   padding: 28px 36px 24px 28px;
 }
@@ -113,13 +118,13 @@
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr auto;
-  padding: 24px 0 18px;
+  padding: 20px 0 16px;
 }
 
 .title-band h1 {
   color: var(--accent);
   font-family: var(--font-serif);
-  font-size: 68px;
+  font-size: 62px;
   font-weight: 500;
   line-height: 0.96;
   margin: 0;
@@ -127,7 +132,7 @@
 }
 
 .title-band p {
-  color: var(--accent-green);
+  color: var(--accent);
   font-family: var(--font-serif);
   font-size: 19px;
   line-height: 1.3;
@@ -137,51 +142,37 @@
 
 .lesson-sections {
   display: grid;
-  gap: 8px;
-  grid-template-areas:
-    "basic basic"
-    "nature state"
-    "palace palace"
-    "quote quote";
-  grid-template-columns: 0.72fr 1.28fr;
-  grid-template-rows: 176px 236px minmax(0, 1fr) 88px;
+  gap: 10px;
+  grid-template-rows: max-content minmax(0, 1fr) 70px;
   min-height: 0;
 }
 
-.basic-section {
-  grid-area: basic;
-}
-
-.nature-section {
-  grid-area: nature;
+.summary-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1.28fr) minmax(220px, 0.72fr);
+  grid-template-rows: max-content max-content;
+  min-height: 0;
 }
 
 .state-section {
-  grid-area: state;
-}
-
-.palace-section {
-  grid-area: palace;
-}
-
-.quote-section {
-  grid-area: quote;
+  grid-column: 1 / -1;
 }
 
 .numbered-section {
-  background: rgba(251, 255, 253, 0.97);
+  background: rgba(255, 254, 253, 0.97);
   border: 1.2px solid var(--line-soft);
   border-radius: 8px;
   min-width: 0;
   overflow: hidden;
-  padding: 12px 16px 14px;
+  padding: 11px 14px 12px;
 }
 
 .section-heading {
   align-items: center;
   display: flex;
   gap: 10px;
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 .section-number {
@@ -190,18 +181,18 @@
   color: #fffdf8;
   display: inline-flex;
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
   justify-content: center;
   line-height: 1;
-  min-width: 36px;
-  padding: 6px 8px;
+  min-width: 33px;
+  padding: 5px 7px;
 }
 
 .section-heading h2 {
   color: var(--accent);
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 600;
   line-height: 1.1;
   margin: 0;
@@ -209,16 +200,16 @@
 
 .section-content {
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.58;
+  font-size: 15.5px;
+  line-height: 1.55;
 }
 
 .note-table {
   border-collapse: separate;
   border-spacing: 0;
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.35;
+  font-size: 14px;
+  line-height: 1.34;
   overflow: hidden;
   table-layout: fixed;
   width: 100%;
@@ -228,13 +219,14 @@
 .note-table td {
   border-bottom: 1px solid var(--line-faint);
   border-right: 1px solid var(--line-faint);
-  padding: 7px 10px;
+  padding: 4px 7px;
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 .note-table thead th {
-  background: var(--accent-green-light);
+  background: var(--accent-light);
   color: var(--ink-main);
   font-weight: 600;
 }
@@ -242,7 +234,17 @@
 .note-table tbody th {
   color: var(--ink-main);
   font-weight: 600;
-  width: 28%;
+  width: 22%;
+}
+
+.note-table th:first-child,
+.note-table td:first-child {
+  width: 22%;
+}
+
+.note-table th:last-child,
+.note-table td:last-child {
+  width: 78%;
 }
 
 .note-table tr > *:first-child {
@@ -255,7 +257,7 @@
 
 .note-list {
   margin: 0;
-  padding-left: 20px;
+  padding-left: 17px;
 }
 
 .note-list li {
@@ -263,84 +265,115 @@
   padding-left: 2px;
 }
 
-.compact-list {
-  padding-left: 16px;
+.nature-section .section-content {
+  font-size: 15.5px;
+  line-height: 1.62;
+  padding-top: 8px;
 }
 
-.section-pair {
-  display: contents;
+.nature-section .note-list li {
+  margin: 4px 0;
 }
 
 .state-compare {
   display: grid;
-  gap: 8px;
-  grid-template-columns: 1fr;
+  gap: 7px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .state-compare > div {
   border: 1px solid var(--line-faint);
   border-radius: 5px;
-  padding: 8px 10px;
-}
-
-.state-compare h3 {
-  color: var(--accent-dark);
-  font-family: var(--font-serif);
-  font-size: 16px;
-  line-height: 1;
-  margin: 0 0 4px;
-  text-align: center;
+  padding: 7px 8px;
 }
 
 .state-section .section-content {
+  padding-left: 10px;
+}
+
+.state-compare h3 {
+  background: var(--accent-light);
+  border: 1px solid var(--line-faint);
+  border-radius: 4px;
+  color: var(--accent-dark);
+  font-family: var(--font-serif);
   font-size: 14px;
-  line-height: 1.42;
+  line-height: 1;
+  margin: 0 0 6px;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.state-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.state-keywords li {
+  border-bottom: 1px solid var(--line-faint);
+  color: var(--ink-main);
+  font-family: var(--font-body);
+  font-size: 13.8px;
+  line-height: 1.34;
+  padding: 1px 0;
+  width: calc(50% - 3px);
 }
 
 .palace-list {
   display: grid;
-  gap: 0 22px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   list-style: none;
   padding-left: 0;
 }
 
 .palace-list li {
   border-bottom: 1px dashed var(--line-faint);
-  display: grid;
-  gap: 8px;
-  grid-template-columns: 48px 1fr;
+  display: block;
   margin-bottom: 0;
-  padding: 6px 0;
+  min-height: auto;
+  padding: 4px 0;
 }
 
 .palace-list strong {
-  color: var(--ink-main);
-  font-weight: 600;
+  color: var(--accent-dark);
+  display: block;
+  font-size: 13px;
+  line-height: 1.2;
+  margin-bottom: 1px;
   white-space: nowrap;
+}
+
+.palace-list span {
+  color: var(--ink-main);
+  display: block;
 }
 
 .palace-section .section-content {
   font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.48;
+  font-size: 14.8px;
+  line-height: 1.42;
 }
 
 .memory-line {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.2;
   margin: 0;
   text-align: center;
 }
 
 .quote-section .section-content {
-  display: grid;
-  gap: 6px;
   padding: 0;
 }
 
 .quote-section {
+  align-content: center;
+  display: grid;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -348,7 +381,7 @@
 .boundary-line {
   color: var(--ink-muted);
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 10.5px;
   line-height: 1.25;
   margin: 0;
   text-align: center;
@@ -356,45 +389,54 @@
 
 .footer-note {
   align-self: end;
-  border-top: 1.5px solid var(--line-soft);
   color: var(--ink-main);
   display: grid;
-  gap: 2px;
+  gap: 4px;
   justify-items: center;
-  margin-top: 8px;
-  padding-top: 8px;
-  position: relative;
+  margin-top: 0;
+  padding-top: 2px;
 }
 
-.footer-note::before,
-.footer-note::after {
+.footer-rule {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) 5px auto 5px minmax(0, 1fr);
+  width: 100%;
+}
+
+.footer-rule p {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.25;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.footer-line {
+  background: var(--line-soft);
+  display: block;
+  height: 2px;
+  min-width: 0;
+}
+
+.footer-dot {
   background: var(--accent-dark);
   border-radius: 50%;
-  content: "";
+  display: block;
   height: 5px;
-  position: absolute;
-  top: -3px;
   width: 5px;
 }
 
-.footer-note::before {
-  left: 28%;
-}
-
-.footer-note::after {
-  right: 28%;
-}
-
-.footer-note p {
+.footer-disclaimer {
+  color: var(--ink-muted);
   font-family: var(--font-body);
   font-size: 11px;
-  line-height: 1.18;
+  line-height: 1.25;
   margin: 0;
-}
-
-.footer-note p:last-child {
-  color: var(--ink-muted);
-  font-size: 10px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .scene-markers {

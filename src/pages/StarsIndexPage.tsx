@@ -14,10 +14,10 @@ const starNotes: NoteGridItem[] = [
   {
     number: "02",
     title: "天机星",
-    tags: "南斗｜乙木",
-    summary: "机变、思考、调整与结构转换。",
-    status: "待整理",
-    href: "/stars",
+    tags: "南斗｜乙木｜善",
+    summary: "思虑、机变、策略与学习。重观察、应变和调整。",
+    status: "已完成",
+    href: "/stars/tianji",
   },
   {
     number: "03",

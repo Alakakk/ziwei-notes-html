@@ -75,3 +75,55 @@ export const ziweiNote: StarNote = {
   disclaimer: "研究笔记，仅作术数学学习与民俗文化分享，不作现实决策依据。",
   meta: "A5 template / stars / 01",
 };
+
+export const tianjiNote: StarNote = {
+  slug: "tianji",
+  title: "天机星",
+  brand: "紫斗笔记",
+  category: "十四主星",
+  pageLabel: "第 02 页｜天机星",
+  displayTitle: "天机星",
+  topic: "对主星｜思考与机变",
+  basicTags: [
+    { label: "五行主性", value: "乙木" },
+    { label: "五行兼性", value: "无" },
+    { label: "阴阳", value: "阴" },
+    { label: "星系", value: "南斗星" },
+    { label: "化气", value: "善" },
+    { label: "主", value: "思虑、机变、策略、学习" },
+  ],
+  naturePoints: [
+    "机敏、善思",
+    "好学、应变快",
+    "策划力强、重逻辑",
+    "变化多",
+    "行动偏灵巧而非强攻",
+  ],
+  stateCompare: {
+    good: ["聪明灵活", "善观察", "会统筹", "应变强", "学习快", "能因势调整"],
+    weak: ["多思多虑", "反复犹豫", "主意多但不定", "易焦虑", "漂浮不稳", "劳心劳神"],
+  },
+  palaceHints: [
+    { palace: "命宫", hint: "聪明机敏，思虑多，变化感较重" },
+    { palace: "兄弟", hint: "同辈聪明机巧，互动多变" },
+    { palace: "夫妻", hint: "关系重交流，也易多变反复" },
+    { palace: "子女", hint: "子女灵巧好学，思维活" },
+    { palace: "财帛", hint: "靠脑力、技术、策划得财" },
+    { palace: "疾厄", hint: "劳心、神经紧张与失眠" },
+    { palace: "迁移", hint: "在外机会多，适应变化" },
+    { palace: "交友", hint: "朋友多聪明型，流动性强" },
+    { palace: "官禄", hint: "适合策划、技术、教育、研究" },
+    { palace: "田宅", hint: "居住与置产想法多变" },
+    { palace: "福德", hint: "精神活动强，喜思考" },
+    { palace: "父母", hint: "长辈聪明能干，关系有想法差异" },
+  ],
+  quote: "天机 = 思考 / 变化 / 机巧 / 策略",
+  footerSource: "内容据《紫微斗数精成》整理。",
+  disclaimer: "研究笔记，仅作术数学学习与民俗文化分享，不作现实决策依据。",
+  meta: "A5 template / stars / 02",
+};
+
+export const starNotesBySlug = {
+  ziwei: ziweiNote,
+  tianji: tianjiNote,
+};

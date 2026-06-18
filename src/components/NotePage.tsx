@@ -19,7 +19,7 @@ function StateCompare({ note }: { note: StarNote }) {
     <div className="state-compare">
       <div>
         <h3>顺用</h3>
-        <ul className="note-list compact-list">
+        <ul className="state-keywords">
           {note.stateCompare.good.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -27,7 +27,7 @@ function StateCompare({ note }: { note: StarNote }) {
       </div>
       <div>
         <h3>失衡</h3>
-        <ul className="note-list compact-list">
+        <ul className="state-keywords">
           {note.stateCompare.weak.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -63,29 +63,29 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
           />
           <TitleBand title={note.displayTitle} topic={note.topic} />
           <div className="lesson-sections" aria-label="紫微星笔记内容">
-            <NumberedSection
-              className="basic-section"
-              number="01"
-              title="基础档案"
-              scene="basic-tags"
-            >
-              <NoteTable rows={note.basicTags} />
-            </NumberedSection>
+            <div className="summary-grid">
+              <NumberedSection
+                className="basic-section"
+                number="01"
+                title="基础档案"
+                scene="basic-tags"
+              >
+                <NoteTable rows={note.basicTags} />
+              </NumberedSection>
 
-            <NumberedSection
-              className="nature-section"
-              number="02"
-              title="星性核心"
-              scene="star-nature"
-            >
-              <ul className="note-list">
-                {note.naturePoints.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </NumberedSection>
+              <NumberedSection
+                className="nature-section"
+                number="02"
+                title="星性核心"
+                scene="star-nature"
+              >
+                <ul className="note-list nature-points">
+                  {note.naturePoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </NumberedSection>
 
-            <div className="section-pair">
               <NumberedSection
                 className="state-section"
                 number="03"
@@ -94,23 +94,23 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
               >
                 <StateCompare note={note} />
               </NumberedSection>
-
-              <NumberedSection
-                className="palace-section"
-                number="04"
-                title="十二宫落点"
-                scene="palace-hints"
-              >
-                <ul className="note-list palace-list">
-                  {note.palaceHints.map((item) => (
-                    <li key={item.palace}>
-                      <strong>{item.palace}：</strong>
-                      {item.hint}
-                    </li>
-                  ))}
-                </ul>
-              </NumberedSection>
             </div>
+
+            <NumberedSection
+              className="palace-section"
+              number="04"
+              title="十二宫落点"
+              scene="palace-hints"
+            >
+              <ul className="note-list palace-list">
+                {note.palaceHints.map((item) => (
+                  <li key={item.palace}>
+                    <strong>{item.palace}</strong>
+                    <span>{item.hint}</span>
+                  </li>
+                ))}
+              </ul>
+            </NumberedSection>
 
             <NumberedSection
               className="quote-section"
@@ -119,7 +119,6 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
               scene="closing-quote"
             >
               <p className="memory-line">{note.quote}</p>
-              <p className="boundary-line">学习整理，不作现实决策依据。</p>
             </NumberedSection>
           </div>
           <FooterNote
