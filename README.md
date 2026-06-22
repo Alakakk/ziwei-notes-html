@@ -33,6 +33,38 @@ npm run build
 
 构建产物会输出到 `dist/`，可用于后续静态部署。
 
+## 导出 PNG / PDF
+
+首次使用导出功能，先安装 Playwright Chromium：
+
+```bash
+npm run export:install
+```
+
+导出脚本会截取页面中的 `.note-page`，不会包含网站导航、阅读页侧栏或工具按钮。
+
+```bash
+npm run export:png -- /stars/ziwei
+npm run export:pdf -- /stars/ziwei
+
+npm run export:png -- /palaces/minggong
+npm run export:pdf -- /palaces/minggong
+```
+
+默认输出位置：
+
+```text
+exports/png/
+exports/pdf/
+```
+
+如需指定文件名：
+
+```bash
+npm run export:png -- /palaces/minggong --out exports/png/minggong.png
+npm run export:pdf -- /palaces/minggong --out exports/pdf/minggong.pdf
+```
+
 ## 当前状态
 
 这个 repo 当前是 private。需要注意：private repo 只代表源码仓库私有，并不等于未来发布出来的网站也一定是私有。若以后部署到 GitHub Pages、Cloudflare Pages 或其他静态托管服务，需要单独确认发布目标、访问权限和域名策略。
@@ -72,16 +104,16 @@ exports/
   pdf/
 ```
 
-## 导出预留
+## 导出说明
 
 `.note-page` 是完整页面容器，尺寸由 `src/styles/tokens.css` 中的变量控制：
 
 ```css
---page-width: 559px;
---page-height: 794px;
+--page-width: 794px;
+--page-height: 1123px;
 ```
 
-后续 Playwright 可以直接定位 `.note-page` 进行截图或 PDF 输出。导出时可添加 `.export-mode` class，去除浏览器预览用阴影。
+Playwright 导出时会打开带有 `?export=1` 的页面，只渲染 A5 笔记本体，并给 `.note-page` 添加 `.export-mode`。
 
 ## HyperFrames 预留
 

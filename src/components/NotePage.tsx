@@ -121,10 +121,7 @@ export function NotePage({ note, exportMode = false }: NotePageProps) {
               <p className="memory-line">{note.quote}</p>
             </NumberedSection>
           </div>
-          <FooterNote
-            source={note.footerSource}
-            disclaimer={note.disclaimer}
-          />
+          <FooterNote disclaimer={note.disclaimer} />
         </div>
         <SceneMarkers />
       </article>

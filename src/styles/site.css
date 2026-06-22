@@ -534,12 +534,23 @@
   background: var(--accent-green-light);
   border: 1px solid var(--line-soft);
   border-radius: 5px;
-  color: var(--ink-muted);
-  cursor: not-allowed;
+  color: var(--accent);
+  cursor: pointer;
   font-family: var(--font-serif);
   font-size: 13px;
   line-height: 1;
   padding: 8px 10px;
+}
+
+.reader-actions button:hover:not(:disabled) {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.reader-actions button:disabled {
+  color: var(--ink-muted);
+  cursor: not-allowed;
+  opacity: 0.66;
 }
 
 .reader-shell {
