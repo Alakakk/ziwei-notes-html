@@ -1,10 +1,14 @@
 import { HomePage } from "./pages/HomePage";
+import { MinorStarNotePage } from "./components/MinorStarNotePage";
+import { MinorStarReaderPage } from "./pages/MinorStarReaderPage";
+import { MinorStarsIndexPage } from "./pages/MinorStarsIndexPage";
 import { NotePage } from "./components/NotePage";
 import { PalaceNotePage } from "./components/PalaceNotePage";
 import { PalaceReaderPage } from "./pages/PalaceReaderPage";
 import { PalacesIndexPage } from "./pages/PalacesIndexPage";
 import { StarsIndexPage } from "./pages/StarsIndexPage";
 import { StarReaderPage } from "./pages/StarReaderPage";
+import { minorStarNotesBySlug } from "./data/minorStars";
 import { palaceNotesBySlug } from "./data/palaces";
 import { starNotesBySlug } from "./data/stars";
 
@@ -18,6 +22,10 @@ export function App() {
 
   if (path === "/palaces") {
     return <PalacesIndexPage />;
+  }
+
+  if (path === "/minor-stars") {
+    return <MinorStarsIndexPage />;
   }
 
   if (path.startsWith("/stars/")) {
@@ -49,6 +57,24 @@ export function App() {
 
       return (
         <PalaceReaderPage
+          note={note}
+          pageNumber={note.pageLabel.split("｜")[0]}
+        />
+      );
+    }
+  }
+
+  if (path.startsWith("/minor-stars/")) {
+    const slug = path.replace("/minor-stars/", "");
+    const note = minorStarNotesBySlug[slug];
+
+    if (note) {
+      if (isExportMode) {
+        return <MinorStarNotePage note={note} exportMode />;
+      }
+
+      return (
+        <MinorStarReaderPage
           note={note}
           pageNumber={note.pageLabel.split("｜")[0]}
         />
