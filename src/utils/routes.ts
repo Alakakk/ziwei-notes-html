@@ -1,10 +1,16 @@
-const meta = import.meta as ImportMeta & {
-  env?: {
-    BASE_URL?: string;
-  };
-};
+function getBasePath() {
+  const scriptSrc =
+    document
+      .querySelector<HTMLScriptElement>('script[type="module"][src]')
+      ?.getAttribute("src") || "";
+  const assetsSegment = "/assets/";
 
-const rawBasePath = meta.env?.BASE_URL || "/";
+  if (scriptSrc.startsWith("/") && scriptSrc.includes(assetsSegment)) {
+    return scriptSrc.slice(0, scriptSrc.indexOf(assetsSegment));
+  }
+
+  return "";
+}
 
 export function routeHref(path: string) {
   if (
@@ -16,6 +22,7 @@ export function routeHref(path: string) {
     return path;
   }
 
+  const rawBasePath = getBasePath();
   const basePath = rawBasePath.endsWith("/")
     ? rawBasePath.slice(0, -1)
     : rawBasePath;
@@ -32,6 +39,7 @@ export function routeHref(path: string) {
 }
 
 export function getCurrentRoutePath() {
+  const rawBasePath = getBasePath();
   const basePath = rawBasePath.endsWith("/")
     ? rawBasePath.slice(0, -1)
     : rawBasePath;
