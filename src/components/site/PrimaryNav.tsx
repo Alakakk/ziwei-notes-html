@@ -1,4 +1,5 @@
 import { primaryNavigation } from "../../data/navigation";
+import { routeHref } from "../../utils/routes";
 
 type PrimaryNavProps = {
   activePath?: string;
@@ -10,7 +11,7 @@ export function PrimaryNav({ activePath = "/" }: PrimaryNavProps) {
       {primaryNavigation.map((item) => (
         <a
           className={item.href === activePath ? "is-active" : ""}
-          href={item.href}
+          href={routeHref(item.href)}
           key={item.href}
         >
           {item.label}

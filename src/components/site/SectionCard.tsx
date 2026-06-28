@@ -1,3 +1,5 @@
+import { routeHref } from "../../utils/routes";
+
 type SectionCardProps = {
   number: string;
   title: string;
@@ -12,7 +14,7 @@ export function SectionCard({
   href,
 }: SectionCardProps) {
   return (
-    <a className="site-section-card" href={href}>
+    <a className="site-section-card" href={routeHref(href)}>
       <div className="site-section-heading">
         <span className="site-number-badge">{number}</span>
         <h3>{title}</h3>

@@ -3,6 +3,7 @@ import { ReaderShell } from "../components/site/ReaderShell";
 import { ReaderToolbar } from "../components/site/ReaderToolbar";
 import { SiteLayout } from "../components/site/SiteLayout";
 import type { MinorStarNote } from "../data/minorStars";
+import { routeHref } from "../utils/routes";
 
 type MinorStarReaderPageProps = {
   note: MinorStarNote;
@@ -60,10 +61,10 @@ export function MinorStarReaderPage({
               <h2>相关笔记</h2>
             </div>
             <div className="related-notes">
-              <a href="/minor-stars/zuofu-youbi">左辅右弼｜六吉助星</a>
-              <a href="/minor-stars/wenchang-wenqu">文昌文曲｜文教才华</a>
-              <a href="/minor-stars/qingyang-tuoluo">擎羊陀罗｜煞曜阻力</a>
-              <a href="/minor-stars">辅星杂曜｜返回目录</a>
+              <a href={routeHref("/minor-stars/zuofu-youbi")}>左辅右弼｜六吉助星</a>
+              <a href={routeHref("/minor-stars/wenchang-wenqu")}>文昌文曲｜文教才华</a>
+              <a href={routeHref("/minor-stars/qingyang-tuoluo")}>擎羊陀罗｜煞曜阻力</a>
+              <a href={routeHref("/minor-stars")}>辅星杂曜｜返回目录</a>
             </div>
             <p className="reader-panel-note">
               后续这里会放辅星组合、主星会照和宫位落点索引。

@@ -1,3 +1,5 @@
+import { routeHref } from "../../utils/routes";
+
 type NoteCardProps = {
   number: string;
   title: string;
@@ -16,7 +18,7 @@ export function NoteCard({
   href,
 }: NoteCardProps) {
   return (
-    <a className="note-card" href={href}>
+    <a className="note-card" href={routeHref(href)}>
       <div className="note-card-heading">
         <span className="site-number-badge">{number}</span>
         <h3>{title}</h3>

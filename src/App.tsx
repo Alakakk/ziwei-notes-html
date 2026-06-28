@@ -11,9 +11,10 @@ import { StarReaderPage } from "./pages/StarReaderPage";
 import { minorStarNotesBySlug } from "./data/minorStars";
 import { palaceNotesBySlug } from "./data/palaces";
 import { starNotesBySlug } from "./data/stars";
+import { getCurrentRoutePath } from "./utils/routes";
 
 export function App() {
-  const path = window.location.pathname;
+  const path = getCurrentRoutePath();
   const isExportMode = new URLSearchParams(window.location.search).get("export") === "1";
 
   if (path === "/stars") {

@@ -3,6 +3,7 @@ import { ReaderShell } from "../components/site/ReaderShell";
 import { ReaderToolbar } from "../components/site/ReaderToolbar";
 import { SiteLayout } from "../components/site/SiteLayout";
 import type { StarNote } from "../data/stars";
+import { routeHref } from "../utils/routes";
 
 type StarReaderPageProps = {
   note: StarNote;
@@ -56,9 +57,9 @@ export function StarReaderPage({ note, pageNumber }: StarReaderPageProps) {
               <h2>相关笔记</h2>
             </div>
             <div className="related-notes">
-              <a href="/stars/ziwei">紫微星｜已完成</a>
-              <a href="/stars/tianji">天机星｜已完成</a>
-              <a href="/stars">十四主星｜返回目录</a>
+              <a href={routeHref("/stars/ziwei")}>紫微星｜已完成</a>
+              <a href={routeHref("/stars/tianji")}>天机星｜已完成</a>
+              <a href={routeHref("/stars")}>十四主星｜返回目录</a>
             </div>
             <p className="reader-panel-note">
               后续这里会放同组主星、组合提示和导出记录。

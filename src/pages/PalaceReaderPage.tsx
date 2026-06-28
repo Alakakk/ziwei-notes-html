@@ -3,6 +3,7 @@ import { ReaderShell } from "../components/site/ReaderShell";
 import { ReaderToolbar } from "../components/site/ReaderToolbar";
 import { SiteLayout } from "../components/site/SiteLayout";
 import type { PalaceNote } from "../data/palaces";
+import { routeHref } from "../utils/routes";
 
 type PalaceReaderPageProps = {
   note: PalaceNote;
@@ -57,9 +58,9 @@ export function PalaceReaderPage({ note, pageNumber }: PalaceReaderPageProps) {
               <h2>相关笔记</h2>
             </div>
             <div className="related-notes">
-              <a href="/palaces/minggong">命宫｜母版完成</a>
-              <a href="/palaces">十二宫｜返回目录</a>
-              <a href="/stars">十四主星｜对照星曜</a>
+              <a href={routeHref("/palaces/minggong")}>命宫｜母版完成</a>
+              <a href={routeHref("/palaces")}>十二宫｜返回目录</a>
+              <a href={routeHref("/stars")}>十四主星｜对照星曜</a>
             </div>
             <p className="reader-panel-note">
               后续这里会放三方四正、对宫关系和同类宫位提示。

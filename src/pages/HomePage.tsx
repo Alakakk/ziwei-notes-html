@@ -1,5 +1,6 @@
 import { SectionCard } from "../components/site/SectionCard";
 import { SiteLayout } from "../components/site/SiteLayout";
+import { routeHref } from "../utils/routes";
 
 const indexSections = [
   {
@@ -74,10 +75,10 @@ export function HomePage() {
           主星、宫位、五行、四化、门派与案例，逐步整理为可阅读、可打印、可视频化的知识资产。
         </p>
         <div className="home-actions">
-          <a className="paper-button primary" href="/notes">
+          <a className="paper-button primary" href={routeHref("/notes")}>
             进入一页笔记
           </a>
-          <a className="paper-button" href="/learning-path">
+          <a className="paper-button" href={routeHref("/learning-path")}>
             查看学习路径
           </a>
         </div>
@@ -102,7 +103,7 @@ export function HomePage() {
         </div>
         <div className="latest-notes">
           {latestNotes.map((note) => (
-            <a className="latest-note" href={note.href} key={note.label}>
+            <a className="latest-note" href={routeHref(note.href)} key={note.label}>
               <span>{note.label}</span>
               <small>{note.meta}</small>
             </a>

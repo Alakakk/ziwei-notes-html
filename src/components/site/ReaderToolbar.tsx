@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { exportCurrentNote } from "../../utils/clientExport";
+import { routeHref } from "../../utils/routes";
 
 type ReaderToolbarProps = {
   title: string;
@@ -34,7 +35,7 @@ export function ReaderToolbar({
 
   return (
     <div className="reader-toolbar">
-      <a href={backHref}>{backLabel}</a>
+      <a href={routeHref(backHref)}>{backLabel}</a>
       <span>{category}｜{title}</span>
       <div className="reader-actions" aria-label="导出工具">
         <button
